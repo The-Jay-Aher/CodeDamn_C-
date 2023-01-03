@@ -8,40 +8,42 @@
 #include <algorithm>
 using namespace std;
 
+// This is a function prototype
+double addNumbers(double num1, double num2);
+
+void assignAge(int age);
+
+int assignAge2(int age);
+
 int main()
 {
-    // Here 2 stands for the size of the predefined vector.
-    vector<int> vecRandNums(2);
-    vecRandNums[0] = 10;
-    vecRandNums[1] = 20;
+    // double num1, num2;
+    // cout << "Enter Num 1: ";
+    // cin >> num1;
+    // cout << "Enter Num 2: ";
+    // cin >> num2;
+    // printf("%.1f + %.1f = %.1f", num1, num2, addNumbers(num1, num2));
 
-    vecRandNums.push_back(30);
-    cout << "Vecor Size: " << vecRandNums.size() << endl;
-
-    cout << "Last Index: " << vecRandNums[vecRandNums.size() - 1] << endl;
-
-    // When we use an iterator it is going to used for cycling through a range of values
-    vector<int>::iterator it;
-
-    it = find(vecRandNums.begin(), vecRandNums.end(), 20);
-    cout << *it << endl;
-
-    string sSentence = "This is a random string";
-    vector<string> vecWords;
-    //  It is just an object that receives string seperated by spaces and spits them out one by one for us.
-    stringstream ss(sSentence);
-
-    string sIndivString;
-    char cSpace = ' ';
-    while (getline(ss, sIndivString, cSpace))
-    {
-        vecWords.push_back(sIndivString);
-    }
-
-    
-
-    for (auto x : vecWords)
-        cout << x << endl;  
+    int age = 43;
+    // assignAge(age);
+    assignAge2(age);
+    cout << "New Age: " << assignAge2(age) << endl;
 
     return 0;
+}
+
+double addNumbers(double num1 = 0, double num2 = 0)
+{
+    return num1 + num2;
+}
+
+void assignAge(int age)
+{
+    age = 24;
+}
+
+int assignAge2(int age)
+{
+    age = 24;
+    return age;
 }

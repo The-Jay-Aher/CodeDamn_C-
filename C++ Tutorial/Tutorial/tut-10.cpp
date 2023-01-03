@@ -3,63 +3,45 @@
 #include <string>
 #include <cmath>
 #include <ctime>
-#include <array>
+#include <vector>
+#include <sstream>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int arrNums[10] = {1}; // This adds one to the 1st Index of the Array
-    int arrNums2[] = {1, 2, 3};
-    int arrNums3[5] = {8, 9};
+    // Here 2 stands for the size of the predefined vector.
+    vector<int> vecRandNums(2);
+    vecRandNums[0] = 10;
+    vecRandNums[1] = 20;
 
-    // 1st - Way
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     cout << arrNums3[i] << endl;
-    // }
+    vecRandNums.push_back(30);
+    cout << "Vecor Size: " << vecRandNums.size() << endl;
 
-    // Here * is a dereference operator
-    cout << "Array Size: " << sizeof(arrNums3) / sizeof(*arrNums3) << endl;
+    cout << "Last Index: " << vecRandNums[vecRandNums.size() - 1] << endl;
 
-    // 2nd - Way
-    for (auto x : arrNums3)
-        cout << x << endl;
+    // When we use an iterator it is going to used for cycling through a range of values
+    vector<int>::iterator it;
 
-    int arrSize = sizeof(arrNums2) / sizeof(arrNums2[0]);
-    for (int i = 0; i < arrSize; i++)
+    it = find(vecRandNums.begin(), vecRandNums.end(), 20);
+    cout << *it << endl;
+
+    string sSentence = "This is a random string";
+    vector<string> vecWords;
+    //  It is just an object that receives string seperated by spaces and spits them out one by one for us.
+    stringstream ss(sSentence);
+
+    string sIndivString;
+    char cSpace = ' ';
+    while (getline(ss, sIndivString, cSpace))
     {
-        cout << arrNums2[i] << endl;
+        vecWords.push_back(sIndivString);
     }
 
-    array<int, 5> arrayNums4 = {9,
-                                8,
-                                7,
-                                6};
-    for (auto j = arrayNums4.begin(); j != arrayNums4.end(); j++)
-    {
-        cout << " " << *j;
-    }
-    cout << endl;
+    
 
-    cout << "Size: " << arrayNums4.size() << endl;
-    cout << "Max Size: " << arrayNums4.max_size() << endl;
-
-    cout << "Empty: " << (arrayNums4.empty() ? "Yes" : "No") << endl;
-
-    cout << "1st: " << arrayNums4[0] << endl;
-    cout << "2nd: " << arrayNums4.at(1) << endl;
-
-    arrayNums4.fill(5);
-
-    array<int, 5> arrNums5 = {9, 8, 7, 6};
-
-    arrNums5.swap(arrayNums4);
-
-    for (auto x : arrNums5)
-        cout << x << " ";
-
-    int arrNums4[2][2][2] = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}};
-    cout << arrNums4[1][1][1] << endl;
+    for (auto x : vecWords)
+        cout << x << endl;  
 
     return 0;
 }

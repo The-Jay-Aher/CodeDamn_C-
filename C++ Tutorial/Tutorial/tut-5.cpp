@@ -1,4 +1,4 @@
-// For Loop
+// While Loop
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -8,44 +8,28 @@ using namespace std;
 
 int main()
 {
-
-    // for (int i = 0; i <= 10; i++)
+    // srand(time(NULL));
+    // int randNum = rand() % 100;
+    // int i = 1;
+    // while (i != randNum)
     // {
-    //     cout << i << endl;
+    //     i++;
     // }
+    // cout << "The Random Number is " << i << endl;
 
-    int arr1[] = {1, 2, 3};
-    int arrSize = sizeof(arr1) / sizeof(arr1[0]);
+    int j = 1;
 
-    // 1 - Normal
-    // for (int i = 0; i < arrSize; i++)
-    // {
-    //     cout << arr1[i] << endl;
-    // }
-
-    // OR
-
-    // 2 - Auto
-    // for(auto x: arr1) {
-    //     cout << x << endl;
-    // }
-
-    // OR
-
-    // 3 - One Liner
-    for (auto x : arr1)
-        cout << x << endl;
-
-    int n = 4;
-    string isEven = (n % 2 == 0) ? "Even" : "Odd";
-    cout << isEven << endl;
-
-    for (int i = 0; i <= 20; i++)
+    while (j <= 20)
     {
-        if (i % 2 == 0)
+        if (j % 2 == 0)
         {
-            cout << i << endl;
+            j++;
+            continue;
         }
+        if (j == 15)
+            break;
+        cout << j << endl;
+        j++;
     }
 
     return 0;

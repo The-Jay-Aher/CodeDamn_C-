@@ -1,4 +1,3 @@
-// While Loop
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -6,31 +5,25 @@
 #include <ctime>
 using namespace std;
 
-int main()
-{
-    // srand(time(NULL));
-    // int randNum = rand() % 100;
-    // int i = 1;
-    // while (i != randNum)
-    // {
-    //     i++;
-    // }
-    // cout << "The Random Number is " << i << endl;
+int main() {
 
-    int j = 1;
+    // Intrest Rate
+    float investment, interest, total;
+    cout << "How much to Invest: ";
+    cin >> investment;
 
-    while (j <= 20)
-    {
-        if (j % 2 == 0)
-        {
-            j++;
-            continue;
-        }
-        if (j == 15)
-            break;
-        cout << j << endl;
-        j++;
+    total = investment;
+
+    cout << "Interest Rate: ";
+    cin >> interest;
+    interest = interest * 0.01;
+
+    for (int i = 0; i < 10; i++)
+    {   
+        total = total + investment + (total * interest);
     }
+    
+    printf("Investment after 10 Years: %.2f\n", total);
 
     return 0;
 }

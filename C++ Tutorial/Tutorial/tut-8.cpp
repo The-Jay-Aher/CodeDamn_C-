@@ -6,61 +6,41 @@
 using namespace std;
 
 int main() {
-    // srand(time(NULL));
-    // int randNumb = rand() % 100;
-    // int i = 1;
-    // while (i != randNumb)
+    // Difference between Do-Whie Loop and the While Loop is that Do-While Loop executes at least once.
+    srand(time(NULL));
+    int secretNum = rand() % 10;
+    int guess = 0;
+
+    // do {
+    //     cout << "Guess the number: ";
+    //     cin >> guess;
+    //     if(guess > secretNum) cout << "Too Big" << endl;
+    //     if(guess < secretNum) cout << "Too Small" << endl;
+    // } while (secretNum != guess);
+
+    // This is wrong 
+    // if secretNum = 0, then the loop will execute without asking the input
+    // which is the wrong way
+    // while (secretNum != guess)
     // {
-    //     i++;
+    //     cout << "Guess the Number: ";
+    //     cin >> guess;
+    //     if (guess > secretNum) cout << "Too Big" << endl;
+    //     if (guess < secretNum) cout << "Too Small" << endl;
     // }
-    // cout << "The random number is: " << i << endl;
 
-    // int j = 1;
-    // while (j <= 20)
-    // {
-    //     if(j%2 == 0) {
-    //         j++;
-    //         continue;
-    //     }
-    //     if (j == 15)
-    //     {
-    //         break;
-    //     }
-    //     cout << j << endl;
-    //     j++;
-        
-    // }
-    
-    int treeHeight;
-    cout << "How tall is the tree: ";
-    cin >> treeHeight;
-
-    int spaces=  treeHeight - 1;
-    int hashes = 1;
-    int stumpSpaces = treeHeight - 1;
-
-    while (treeHeight != 0)
+    // Correct Way
+    while (true)
     {
-        for (int k = 0; k < spaces; k++)
-        {
-            cout << " ";
-        }
-        for (int l = 0; l < hashes; l++)
-        {
-            cout << "#";
-        }
-        cout << endl;
-        spaces -= 1;
-        hashes += 2;
-        treeHeight -= 1;
-        
+        cout << "Guess the Number: ";
+        cin >> guess;
+        if (guess > secretNum) cout << "Too Big" << endl;
+        if (guess < secretNum) cout << "Too Small" << endl;
+        if (guess == secretNum) break;
     }
-    for (int m = 0; m < stumpSpaces; m++)
-    {
-        cout << " ";
-    }
-    cout << "#" << endl;
     
+
+    cout << "You guessed It!" << endl; 
 
     return 0;
 }
