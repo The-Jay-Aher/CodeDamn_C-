@@ -66,5 +66,12 @@ int main()
 
     cout << "Lower: " << str2 << endl;
 
+    char aChar = 'Z';
+    int aInt = aChar;
+    cout << "A Code: " << (int)'a' << endl;
+
+    string strNum = to_string(1 + 2);
+    cout << "String: " << strNum << endl;
+
     return 0;
 }
