@@ -80,6 +80,32 @@ void Animal::ToString()
     cout << this->name << " is " << this->height << " is cm tall and " << this->weight << " kg in weight." << endl;
 }
 
+class Dog : public Animal
+{
+private:
+    string sound = "Wooof";
+
+public:
+    void MakeSound()
+    {
+        cout << "The dog " << this->GetName() << " says " << this->sound << endl;
+    }
+
+    Dog(string, double, double, string);
+    Dog() : Animal(){};
+    void ToString();
+};
+
+Dog::Dog(string name, double height, double weight, string sound) : Animal(name, height, weight)
+{
+    this->sound = sound;
+}
+
+void Dog::ToString()
+{
+    cout << this->GetName() << " is " << this->GetHeight() << " cms tall, " << this->GetWeight() << " kg in weight and says " << this->sound << endl;
+}
+
 int main()
 {
     Animal fred;
@@ -93,6 +119,9 @@ int main()
 
     Animal tom("Tom", 36, 15);
     tom.ToString();
+
+    Dog spot("Spot", 38, 16, "Woooooof");
+    spot.ToString();
 
     cout << "Number of Animals: " << Animal::GetNumberOfAnimals() << endl;
     return 0;
